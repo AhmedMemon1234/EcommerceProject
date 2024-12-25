@@ -74,7 +74,7 @@ export default function Header() {
               <span>Home</span>
             </li>
           </Link>
-          <Link href="/shop">
+          <Link href="/Shop">
             <li
               onClick={toggleMenu}
               className="flex items-center space-x-2 text-lg hover:text-gray-400 transition-colors duration-300"
@@ -83,7 +83,7 @@ export default function Header() {
               <span>Shop</span>
             </li>
           </Link>
-          <Link href="/about">
+          <Link href="/About">
             <li
               onClick={toggleMenu}
               className="flex items-center space-x-2 text-lg hover:text-gray-400 transition-colors duration-300"
@@ -92,7 +92,7 @@ export default function Header() {
               <span>About</span>
             </li>
           </Link>
-          <Link href="/contact">
+          <Link href="/Contact">
             <li
               onClick={toggleMenu}
               className="flex items-center space-x-2 text-lg hover:text-gray-400 transition-colors duration-300"
