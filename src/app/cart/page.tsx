@@ -14,7 +14,8 @@ const Cart = () => {
   useEffect(() => {
     setLoading(true); 
     const storedCart = JSON.parse(localStorage.getItem('cart') || '[]');
-    console.log('Stored Cart Items:', storedCart);  
+    console.log('Stored Cart Items:', storedCart); 
+    setCartItems(storedCart);
     setLoading(false); 
   }, []);
 
@@ -32,9 +33,9 @@ const Cart = () => {
       setProgress(0); 
     }
 
-    console.log('Updated Cart:', updatedCart); 
-    localStorage.setItem('cart', JSON.stringify(updatedCart)); 
-    setCartItems(updatedCart); 
+    console.log('Updated Cart:', updatedCart);  
+    localStorage.setItem('cart', JSON.stringify(updatedCart));
+    setCartItems(updatedCart);
   };
 
   const handleCheckout = () => {
@@ -55,8 +56,7 @@ const Cart = () => {
         }
         return prev - 5;
       });
-    }, 100); 
-
+    }, 100);
     setTimeout(() => {
       clearInterval(progressInterval);
       router.push('/checkout');
@@ -126,7 +126,7 @@ const Cart = () => {
             </div>
             <div className="flex justify-between mb-4">
               <p className="text-lg font-semibold text-gray-700">Shipping:</p>
-              <p className="text-lg font-semibold text-gray-900">$50</p> 
+              <p className="text-lg font-semibold text-gray-900">$50</p> {/* Fixed shipping charge */}
             </div>
             <div className="flex justify-between mb-6">
               <p className="text-lg font-semibold text-gray-700">Total:</p>
@@ -144,7 +144,7 @@ const Cart = () => {
 
             {checkoutLoading && (
               <div className="fixed inset-0 bg-gray-500 bg-opacity-50 flex justify-center items-center z-50">
-                <div className="loader"></div>
+                <div className="loader"></div> 
                 <p className="text-white ml-4">Processing...</p>
               </div>
             )}
